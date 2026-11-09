@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AY Design · Sublimación, láser y corte personalizado</title>
+<meta name="description" content="Tazas, playeras, termos y más personalizados. Corte láser, Cricut y plotter. Diseña tu producto en 3D y pídelo por WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700;800&family=Pacifico&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff2e93;--cyan:#00b8f5;--yel:#ffd400;--pur:#6c2bd9;--org:#ff8a00;--ink:#1b1030;--bg:#fff7fb;--line:#f0dcea}
+*{box-sizing:border-box}html{scroll-behavior:smooth}[hidden]{display:none!important}
+body{margin:0;font:16px/1.5 Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+h1,h2,h3,.logo{font-family:Fredoka,system-ui,sans-serif;margin:0;line-height:1.1}
+h2{font-size:clamp(28px,5vw,44px);margin-bottom:8px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+section{padding:64px 0}
+button,.b1,.b2{font:inherit;font-weight:800;border:0;border-radius:999px;padding:10px 20px;cursor:pointer;display:inline-block;text-decoration:none}
+.b1{background:var(--pink);color:#fff;box-shadow:0 4px 0 #b3005f}.b1:active{transform:translateY(2px);box-shadow:0 2px 0 #b3005f}
+.b2{background:#fff;color:var(--pur);border:2px solid var(--pur)}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:3px solid var(--yel)}
+nav .wrap{display:flex;align-items:center;gap:18px;height:64px}
+.logo{font-size:28px;font-weight:700;background:linear-gradient(90deg,var(--pink),var(--pur),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}
+nav .links{display:flex;gap:16px;margin-left:auto}nav .links a{color:var(--ink);font-weight:800;text-decoration:none}
+#cartbtn{background:var(--ink);color:#fff;position:relative}#cartbtn b{background:var(--yel);color:var(--ink);border-radius:99px;padding:0 8px;margin-left:6px}
+@media(max-width:700px){nav .links{display:none}#cartbtn{margin-left:auto}}
+#draft{font-size:12px;background:var(--yel);padding:2px 10px;border-radius:99px;cursor:pointer;font-weight:800}
+.hero{position:relative;overflow:hidden;color:#fff;padding:80px 0 110px;background:linear-gradient(135deg,#6c2bd9,#ff2e93 55%,#ff8a00);border-radius:0 0 50% 50%/0 0 60px 60px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;position:relative;z-index:1}
+.hero h1{font-size:clamp(42px,8vw,84px);font-weight:700}.hero h1 em{font-style:normal;color:var(--yel)}
+.hero p{font-size:20px;max-width:46ch;margin:16px 0 26px}
+.hero .b1{background:var(--yel);color:var(--ink);box-shadow:0 4px 0 #b39500;margin-right:10px}.hero .b2{background:transparent;color:#fff;border-color:#fff}
+.blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;animation:fl 9s ease-in-out infinite}
+.cluster{position:relative;height:340px}
+.cluster span{position:absolute;display:grid;place-items:center;width:130px;height:130px;border-radius:32px;font-size:68px;background:#fff;box-shadow:0 14px 0 rgba(0,0,0,.18);animation:fl 5s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-16px) rotate(4deg)}}
+@media(max-width:800px){.hero .wrap{grid-template-columns:1fr}.cluster{height:210px}.cluster span{width:90px;height:90px;font-size:46px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto}}
+.srv{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
+.srv a{color:var(--ink);text-decoration:none;border-radius:24px;padding:22px;transition:transform .15s}.srv a:hover{transform:translateY(-6px) rotate(-1deg)}
+.srv b{font:700 22px Fredoka;display:block}.srv i{font-style:normal;font-size:44px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.chips button{background:#fff;border:2px solid var(--line);color:var(--ink)}.chips button.on{background:var(--pur);color:#fff;border-color:var(--pur)}
+#q{padding:10px 16px;border:2px solid var(--line);border-radius:99px;font:inherit;min-width:220px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.pc{background:#fff;border-radius:24px;overflow:hidden;border:2px solid var(--line);display:flex;flex-direction:column}
+.pm{height:170px;display:grid;place-items:center;font-size:76px;position:relative}.pm img{width:100%;height:100%;object-fit:cover}
+.c0{background:linear-gradient(135deg,#ff9ac9,#ffb36b)}.c1{background:linear-gradient(135deg,#8be3ff,#b79bff)}.c2{background:linear-gradient(135deg,#ffe86b,#ffb36b)}
+.tag{position:absolute;top:10px;left:10px;background:var(--ink);color:#fff;font-size:12px;padding:2px 10px;border-radius:99px}.tag.low{background:var(--org)}
+.pb{padding:14px;display:flex;flex-direction:column;gap:4px;flex:1}.pb small{color:var(--pur);font-weight:800}.pb h3{font-size:19px}.pb p{margin:0;color:#5b4a73;font-size:14px;flex:1}
+.pr{display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:6px;flex-wrap:wrap}.pr strong{font:700 22px Fredoka}.pr button{padding:8px 14px;font-size:14px}
+#disena{background:linear-gradient(180deg,#e8f8ff,#f4ecff)}
+.dz{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;margin-top:20px}@media(max-width:900px){.dz{grid-template-columns:1fr}}
+#stage{height:clamp(340px,62vh,580px);border-radius:28px;background:radial-gradient(circle at 30% 20%,#fff,#ffe1f1 45%,#cfeeff);border:3px solid #fff;box-shadow:0 10px 30px rgba(108,43,217,.18);overflow:hidden}
+#stage canvas{display:block;width:100%;height:100%;cursor:grab}
+.panel{background:#fff;border-radius:28px;padding:20px;display:grid;gap:12px;align-content:start}
+.panel label{display:grid;gap:2px;font-weight:800;font-size:14px}
+.panel select,.panel input:not([type=range]):not([type=color]):not([type=file]),textarea,.ag select,.ag input{padding:8px 10px;border:2px solid var(--line);border-radius:12px;font:inherit;width:100%}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sw{width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--line);padding:0}
+input[type=color]{width:40px;height:34px;border:0;padding:0;background:none}
+#sl{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px}
+.hint{font-size:13px;color:#5b4a73;margin:8px 4px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:24px;counter-reset:s}
+.steps div{background:#fff;border-radius:24px;padding:22px;border:2px solid var(--line)}.steps div::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--pink);color:#fff;font:700 22px Fredoka;margin-bottom:8px}
+footer{background:var(--ink);color:#fff;padding:36px 0;text-align:center}footer a{color:var(--yel)}
+#wa{position:fixed;right:18px;bottom:18px;z-index:15;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-size:30px;text-decoration:none;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+#cart{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:#fff;z-index:30;transform:translateX(105%);transition:transform .25s;display:flex;flex-direction:column;box-shadow:-10px 0 30px rgba(0,0,0,.2)}#cart.open{transform:none}
+#cart header{padding:16px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,var(--pur),var(--pink));color:#fff}
+#cl{flex:1;overflow:auto;padding:12px}
+.ci{display:grid;grid-template-columns:56px 1fr auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.ci img{width:56px;height:56px;object-fit:contain;background:#f6f0fb;border-radius:12px}.ci .em{width:56px;height:56px;display:grid;place-items:center;font-size:30px;background:#f6f0fb;border-radius:12px}
+.ci button{padding:2px 10px;background:var(--line);color:var(--ink)}
+#cf{padding:14px;display:grid;gap:8px;border-top:2px solid var(--line)}#cf input,#cf textarea{padding:8px 10px;border:2px solid var(--line);border-radius:12px;font:inherit}
+#toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,30px);background:var(--ink);color:#fff;padding:10px 20px;border-radius:99px;opacity:0;transition:.25s;z-index:50;pointer-events:none}#toast.on{opacity:1;transform:translate(-50%,0)}
+#adm{padding:30px 0 80px}#adm .note{background:#fff3c4;border-radius:16px;padding:14px;margin:14px 0;font-size:14px}
+.ar{display:grid;grid-template-columns:120px 1fr auto;gap:14px;background:#fff;border:2px solid var(--line);border-radius:20px;padding:14px;margin-bottom:12px}
+@media(max-width:800px){.ar{grid-template-columns:1fr}}
+.ai{display:grid;gap:6px;justify-items:center}.ai img,.ai span{width:100px;height:100px;object-fit:cover;border-radius:16px;display:grid;place-items:center;font-size:44px;background:#f6f0fb}
+.ag{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}.ag label{font-size:13px;font-weight:800;display:grid;gap:2px}.ag .wide{grid-column:1/-1}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#">AY Design</a><span id="draft" hidden title="Descartar borrador local">Borrador local ✕</span>
+  <div class="links"><a href="#catalogo">Catálogo</a><a href="#disena">Diseña en 3D</a><a href="#como">Cómo pedir</a></div>
+  <button id="cartbtn" aria-label="Abrir pedido">🛒 Pedido<b id="cc">0</b></button>
+</div></nav>
+
+<div id="shop">
+<header class="hero">
+  <div class="blob" style="width:300px;height:300px;background:var(--yel);left:-60px;top:-60px"></div>
+  <div class="blob" style="width:260px;height:260px;background:var(--cyan);right:10%;bottom:-40px;animation-delay:-3s"></div>
+  <div class="wrap">
+    <div>
+      <h1>Tu idea, <em>tu estilo</em>, en cualquier producto</h1>
+      <p>Sublimación, corte láser, Cricut y plotter. Diseña tu taza, playera o termo en 3D y pídelo directo por WhatsApp.</p>
+      <a class="b1" href="#disena">🎨 Diseña el tuyo</a><a class="b2" href="#catalogo">Ver catálogo</a>
+    </div>
+    <div class="cluster" aria-hidden="true">
+      <span style="left:5%;top:5%">☕</span><span style="right:8%;top:0;animation-delay:-1.5s">👕</span>
+      <span style="left:25%;bottom:0;animation-delay:-3s">🥤</span><span style="right:0;bottom:10%;animation-delay:-4s">🖱️</span>
+    </div>
+  </div>
+</header>
+
+<section><div class="wrap">
+  <h2>Todo lo que imaginas, lo hacemos</h2>
+  <div class="srv">
+    <a href="#catalogo" data-cat="Sublimación" style="background:#ffd3e8"><i>🎨</i><b>Sublimación</b>Tazas, playeras, termos, cojines y más.</a>
+    <a href="#catalogo" data-cat="Servicios" style="background:#fff0a8"><i>⚡</i><b>Corte y grabado láser</b>MDF, acrílico y madera.</a>
+    <a href="#catalogo" data-cat="Servicios" style="background:#c9efff"><i>✂️</i><b>Cricut</b>Vinil, stickers y cartulina.</a>
+    <a href="#catalogo" data-cat="Servicios" style="background:#e3d4ff"><i>📐</i><b>Plotter de corte</b>Vinil por metro lineal.</a>
+  </div>
+</div></section>
+
+<section id="catalogo" style="background:#fff"><div class="wrap">
+  <h2>Catálogo</h2>
+  <div class="row"><div class="chips" id="chips"></div><input id="q" type="search" placeholder="Buscar producto…" aria-label="Buscar"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="disena"><div class="wrap">
+  <h2>Diseña tu producto en 3D</h2>
+  <p>Sube tu imagen, agrega texto y míralo en tiempo real. Gira el modelo arrastrando.</p>
+  <div class="dz">
+    <div><div id="stage"></div><p class="hint">Arrastra para girar · rueda del mouse o control para acercar.</p>
+      <div class="row"><button class="b2" id="reset">Vista frontal</button><label class="row">Zoom <input type="range" id="zoom" min="4" max="12" step=".1" value="7.5"></label></div></div>
+    <div class="panel">
+      <label>Producto<select id="dsel"></select></label>
+      <div class="row">Color del producto <input type="color" id="col" value="#ffffff" aria-label="Color del producto">
+        <button class="sw" data-c="#ffffff" style="background:#fff" aria-label="Blanco"></button><button class="sw" data-c="#1b1030" style="background:#1b1030" aria-label="Negro"></button><button class="sw" data-c="#ff2e93" style="background:#ff2e93" aria-label="Rosa"></button><button class="sw" data-c="#00b8f5" style="background:#00b8f5" aria-label="Azul"></button><button class="sw" data-c="#ffd400" style="background:#ffd400" aria-label="Amarillo"></button></div>
+      <div class="row"><label class="b1" style="cursor:pointer">📷 Subir mi imagen<input type="file" id="up" accept="image/*" hidden></label><button class="b2" id="rmimg">Quitar imagen</button></div>
+      <div id="sl"></div>
+      <label>Texto<input id="tx" maxlength="60" placeholder="Escribe aquí…"></label>
+      <div class="row"><input type="color" id="tc" value="#ff2e93" aria-label="Color del texto"><select id="tf" style="flex:1;width:auto"><option>Fredoka</option><option>Pacifico</option><option>Bebas Neue</option><option>Georgia</option><option>Arial</option></select></div>
+      <div class="row"><label>Cantidad <input type="number" id="dq" min="1" value="1" style="width:80px"></label><button class="b1" id="addd" style="margin-left:auto">Agregar al pedido</button></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <h2>Pedir es facilito</h2>
+  <div class="steps">
+    <div><h3>Elige o diseña</h3>Escoge del catálogo o crea tu diseño en el mockup 3D.</div>
+    <div><h3>Arma tu pedido</h3>Agrega todo lo que quieras y revisa el total.</div>
+    <div><h3>Envíalo por WhatsApp</h3>Se abre el chat con tu pedido listo. Adjunta tu diseño y nosotros nos encargamos.</div>
+  </div>
+</div></section>
+<footer><div class="wrap"><div class="logo" style="font-size:34px">AY Design</div><p>Sublimación · Láser · Cricut · Plotter</p><p><a id="wal" href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a> · <a href="#admin">Administrador</a></p></div></footer>
+<a id="wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+</div>
+
+<main id="adm" hidden><div class="wrap">
+  <h1>Panel de administración</h1>
+  <div class="note"><b>Cómo funciona:</b> tus cambios se guardan como borrador en este navegador. Para publicarlos, pulsa <b>Descargar products.json</b> y sube ese archivo a la raíz de tu repositorio de GitHub (junto a <code>index.html</code>). Cualquiera que abra esta página puede ver el panel, pero sus cambios no afectan a nadie: solo el <code>products.json</code> que tú subes es lo que ven los clientes. Las existencias se descuentan a mano cuando confirmas un pedido.</div>
+  <div class="row" style="margin-bottom:12px">
+    <label>WhatsApp (con código de país, solo números)<br><input id="awa" placeholder="5210000000000"></label>
+    <label>Moneda<br><input id="acur" style="width:70px"></label>
+    <button class="b1" id="aadd">+ Producto</button><button class="b1" id="aexp" style="background:var(--pur);box-shadow:0 4px 0 #3f1a85">Descargar products.json</button>
+    <button class="b2" id="adis">Descartar borrador</button><a class="b2" href="#">Volver a la tienda</a>
+  </div>
+  <div id="alist"></div>
+</div></main>
+
+<aside id="cart" aria-label="Tu pedido"><header><h3>Tu pedido</h3><button id="cx" style="background:#fff;color:var(--ink)">Cerrar</button></header>
+  <div id="cl"></div>
+  <div id="cf"><div class="row" style="justify-content:space-between"><b>Total</b><b id="ct" style="font:700 24px Fredoka">$0</b></div>
+    <input id="cname" placeholder="Tu nombre" autocomplete="name"><textarea id="cnote" rows="2" placeholder="Notas (talla, fecha, dirección…)"></textarea>
+    <button class="b1" id="send" style="background:#25d366;box-shadow:0 4px 0 #168a42">Enviar pedido por WhatsApp</button>
+    <small>Si personalizaste algo, se descargarán tus imágenes: adjúntalas en el chat de WhatsApp.</small></div>
+</aside>
+<div id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const CATS=['Sublimación','Insumos','Servicios'];
+const KIND={mug:{n:'Taza',w:1100,h:500,z:7.5},tee:{n:'Playera',w:800,h:900,z:9},tum:{n:'Termo',w:900,h:900,z:8},pad:{n:'Mousepad',w:1200,h:960,z:8.5}};
+const P=(id,n,c,p,s,e,k,d)=>({id,n,c,p,s,e,k,d,img:''});
+const DEF={cfg:{wa:'5210000000000',cur:'$'},products:[
+P('t1','Taza blanca sublimable 11 oz','Sublimación',45,120,'☕','mug','Cerámica AAA con recubrimiento para sublimar. Ideal para regalos.'),
+P('t2','Taza mágica negra','Sublimación',75,40,'🪄','mug','Revela tu diseño con el calor.'),
+P('t3','Taza con asa y borde de color','Sublimación',60,60,'🍵','mug','Interior y asa en color a elegir.'),
+P('p1','Playera poliéster adulto','Sublimación',120,80,'👕','tee','Suave y fresca, estampado de orilla a orilla.'),
+P('p2','Playera infantil','Sublimación',100,50,'🧒','tee','Tallas 2 a 12.'),
+P('r1','Termo sublimable 20 oz','Sublimación',180,30,'🥤','tum','Acero inoxidable, conserva frío y calor.'),
+P('m1','Mousepad 22×18 cm','Sublimación',70,70,'🖱️','pad','Base antiderrapante, impresión nítida.'),
+P('c1','Cojín sublimable 40×40','Sublimación',110,25,'🛋️','','Funda satinada con relleno.'),
+P('z1','Rompecabezas personalizado','Sublimación',90,20,'🧩','','120 piezas con tu foto favorita.'),
+P('l1','Llavero MDF','Sublimación',25,200,'🔑','','Doble cara, varias formas.'),
+P('g1','Gorra sublimable','Sublimación',95,35,'🧢','','Frente blanco listo para sublimar.'),
+P('i1','Papel de sublimación A4 (100 h)','Insumos',220,15,'📄','','Secado rápido, alta transferencia.'),
+P('i2','Tinta de sublimación 100 ml','Insumos',250,12,'🖋️','','Colores vivos para impresoras compatibles.'),
+P('i3','Vinil textil HTV para Cricut','Insumos',60,60,'🌈','','Corte limpio y planchado fácil.'),
+P('i4','Vinil adhesivo permanente','Insumos',55,60,'🏷️','','Letreros, tazas y decoración.'),
+P('s1','Corte y grabado láser','Servicios',150,null,'⚡','','MDF, acrílico y madera. Precio desde, según tamaño.'),
+P('s2','Corte con Cricut','Servicios',80,null,'✂️','','Stickers, vinil y cartulina. Precio desde.'),
+P('s3','Corte con plotter','Servicios',60,null,'📐','','Vinil de corte por metro lineal.'),
+P('s4','Diseño gráfico a medida','Servicios',200,null,'🎨','','Logos, estampados y arte para tus productos.')]};
+const LS='ay_data';let D=JSON.parse(JSON.stringify(DEF)),draft=false,cat='Todo',cart=[];
+const money=v=>D.cfg.cur+Number(v).toFixed(2).replace(/\.00$/,'');
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),2600)}
+function save(){try{localStorage.setItem(LS,JSON.stringify(D));draft=true;$('#draft').hidden=false}catch(e){toast('Almacenamiento lleno: descarga el JSON ahora')}}
+async function load(){
+  try{const r=await fetch('products.json',{cache:'no-store'});if(r.ok)D=await r.json()}catch(e){}
+  try{const l=localStorage.getItem(LS);if(l){D=JSON.parse(l);draft=true}}catch(e){}
+  D.cfg=Object.assign({},DEF.cfg,D.cfg);D.products=D.products||[];$('#draft').hidden=!draft;
+}
+
+// ---- catálogo
+$('#chips').innerHTML=['Todo',...CATS].map(c=>`<button data-c="${c}" class="${c==='Todo'?'on':''}">${c}</button>`).join('');
+function renderGrid(){
+  const q=$('#q').value.toLowerCase();
+  $$('#chips button').forEach(b=>b.classList.toggle('on',b.dataset.c===cat));
+  $('#grid').innerHTML=D.products.filter(p=>(cat==='Todo'||p.c===cat)&&(p.n+p.d).toLowerCase().includes(q)).map(p=>{
+    const out=p.s===0;
+    return `<article class="pc"><div class="pm c${Math.max(0,CATS.indexOf(p.c))}">${p.img?`<img src="${p.img}" alt="${esc(p.n)}">`:`<span>${esc(p.e)||'🎁'}</span>`}${out?'<b class="tag">Agotado</b>':p.s!=null&&p.s<=5?`<b class="tag low">Quedan ${p.s}</b>`:''}</div><div class="pb"><small>${esc(p.c)}</small><h3>${esc(p.n)}</h3><p>${esc(p.d)}</p><div class="pr"><strong>${money(p.p)}</strong><span>${p.k?`<button class="b2" data-d="${esc(p.id)}">Personalizar</button> `:''}<button class="b1" data-a="${esc(p.id)}" ${out?'disabled':''}>Agregar</button></span></div></div></article>`}).join('')||'<p>No hay productos con ese filtro.</p>';
+}
+$('#chips').onclick=e=>{if(e.target.dataset.c){cat=e.target.dataset.c;renderGrid()}};
+$('#q').oninput=renderGrid;
+$$('.srv a').forEach(a=>a.onclick=()=>{cat=a.dataset.cat;renderGrid()});
+$('#grid').onclick=e=>{
+  const a=e.target.dataset.a,d=e.target.dataset.d;
+  if(a)addCart(D.products.find(p=>p.id===a));
+  if(d){pick(d);$('#disena').scrollIntoView()}
+};
+
+// ---- pedido
+function addCart(p,design){
+  const inCart=cart.filter(i=>i.id===p.id).reduce((s,i)=>s+i.q,0),add=design?(+$('#dq').value||1):1;
+  if(p.s!=null&&inCart+add>p.s)return toast(`Solo hay ${p.s} disponibles`);
+  if(design)cart.push({id:p.id,n:p.n+' (personalizado)',p:p.p,q:add,design,e:p.e});
+  else{const it=cart.find(i=>i.id===p.id&&!i.design);it?it.q++:cart.push({id:p.id,n:p.n,p:p.p,q:1,e:p.e})}
+  renderCart();toast('Agregado al pedido ✅');
+}
+function renderCart(){
+  $('#cc').textContent=cart.reduce((s,i)=>s+i.q,0);
+  $('#ct').textContent=money(cart.reduce((s,i)=>s+i.p*i.q,0));
+  $('#cl').innerHTML=cart.map((i,k)=>`<div class="ci">${i.design?`<img src="${i.design.prev}" alt="">`:`<div class="em">${esc(i.e)||'🎁'}</div>`}<div><b>${esc(i.n)}</b><br>${money(i.p)} × ${i.q}</div><div><button data-m="${k}" aria-label="Quitar uno">−</button> <button data-p="${k}" aria-label="Agregar uno">+</button></div></div>`).join('')||'<p>Aún no has agregado nada.</p>';
+}
+$('#cl').onclick=e=>{
+  const m=e.target.dataset.m,p=e.target.dataset.p;
+  if(m!=null){if(--cart[m].q<=0)cart.splice(m,1)}
+  if(p!=null){const i=cart[p],pr=D.products.find(x=>x.id===i.id);if(pr&&pr.s!=null&&cart.filter(x=>x.id===i.id).reduce((s,x)=>s+x.q,0)>=pr.s)return toast('Sin más existencias');i.q++}
+  renderCart();
+};
+$('#cartbtn').onclick=()=>$('#cart').classList.add('open');$('#cx').onclick=()=>$('#cart').classList.remove('open');
+function dl(url,name,delay){setTimeout(()=>{const a=document.createElement('a');a.href=url;a.download=name;a.click()},delay)}
+$('#send').onclick=()=>{
+  if(!cart.length)return toast('Agrega algo a tu pedido');
+  if(D.cfg.wa==='5210000000000')return toast('Falta configurar el número de WhatsApp en el panel Admin');
+  const nm=$('#cname').value.trim(),nt=$('#cnote').value.trim(),tot=cart.reduce((s,i)=>s+i.p*i.q,0);
+  let t='Hola AY Design 👋 Quiero hacer este pedido:\n';
+  cart.forEach((i,k)=>{t+=`${k+1}) ${i.n} x${i.q} — ${money(i.p*i.q)}\n`+(i.design?`   Diseño propio (color ${i.design.color}${i.design.text?`, texto "${i.design.text}"`:''}). Te envío la imagen en este chat.\n`:'')});
+  t+=`Total: ${money(tot)}\n`+(nm?`Nombre: ${nm}\n`:'')+(nt?`Notas: ${nt}\n`:'');
+  cart.filter(i=>i.design).forEach((i,k)=>{dl(i.design.print,`AY-diseno-${k+1}-arte.png`,k*500);dl(i.design.prev,`AY-diseno-${k+1}-vista.png`,k*500+250)});
+  window.open(`https://wa.me/${D.cfg.wa}?text=${encodeURIComponent(t)}`,'_blank');
+};
+function syncWA(){const u=`https://wa.me/${D.cfg.wa}?text=${encodeURIComponent('Hola AY Design 👋 Quiero información')}`;$('#wa').href=$('#wal').href=u}
+
+// ---- diseñador 3D
+const S={kind:'mug',color:'#ffffff',img:null,is:1,ix:0,iy:0,ir:0,text:'',tc:'#ff2e93',tf:'Fredoka',ts:90,tx:0,ty:.7,pid:null};
+const SL=[['is','Tamaño de imagen',.1,3,1,.01],['ix','Imagen ↔',-1,1,0,.01],['iy','Imagen ↕',-1,1,0,.01],['ir','Girar imagen',-180,180,0,1],['ts','Tamaño de texto',20,220,90,1],['tx','Texto ↔',-1,1,0,.01],['ty','Texto ↕',-1,1,.7,.01]];
+$('#sl').innerHTML=SL.map(([k,l,a,b,v,s])=>`<label>${l}<input type="range" min="${a}" max="${b}" step="${s}" value="${v}" data-k="${k}"></label>`).join('');
+const syncSl=()=>$$('#sl input').forEach(i=>i.value=S[i.dataset.k]);
+$('#sl').oninput=e=>{S[e.target.dataset.k]=+e.target.value;draw()};
+let R,scene,cam,grp,tex,BODY;const dc=document.createElement('canvas');
+const home=()=>new THREE.Euler(S.kind==='pad'?.95:0,0,0);
+function render(){R&&R.render(scene,cam)}
+function zoom(z){cam.position.z=Math.max(4,Math.min(12,z));$('#zoom').value=cam.position.z;render()}
+function init3d(){
+  const el=$('#stage');
+  R=new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});R.setPixelRatio(Math.min(devicePixelRatio,2));el.appendChild(R.domElement);
+  scene=new THREE.Scene();cam=new THREE.PerspectiveCamera(35,1,.1,50);cam.position.z=7.5;
+  scene.add(new THREE.AmbientLight(0xffffff,.85));
+  const a=new THREE.DirectionalLight(0xffffff,.8);a.position.set(3,4,6);scene.add(a);
+  const b=new THREE.DirectionalLight(0xffffff,.3);b.position.set(-4,-2,-5);scene.add(b);
+  const cv=R.domElement;let dr=null;cv.style.touchAction='none';
+  cv.onpointerdown=e=>{dr=[e.clientX,e.clientY];cv.setPointerCapture(e.pointerId)};
+  cv.onpointermove=e=>{if(!dr)return;grp.rotation.y+=(e.clientX-dr[0])*.01;grp.rotation.x=Math.max(-1.4,Math.min(1.4,grp.rotation.x+(e.clientY-dr[1])*.01));dr=[e.clientX,e.clientY];render()};
+  cv.onpointerup=cv.onpointercancel=()=>dr=null;
+  cv.addEventListener('wheel',e=>{e.preventDefault();zoom(cam.position.z+e.deltaY*.005)},{passive:false});
+  new ResizeObserver(()=>{const w=el.clientWidth,h=el.clientHeight;R.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix();render()}).observe(el);
+  build();
+}
+function build(){
+  const k=KIND[S.kind],C=THREE;dc.width=k.w;dc.height=k.h;
+  if(grp){scene.remove(grp);grp.traverse(o=>o.geometry&&o.geometry.dispose())}
+  tex&&tex.dispose();tex=new C.CanvasTexture(dc);tex.anisotropy=8;
+  grp=new C.Group();BODY=new C.MeshStandardMaterial({color:S.color,roughness:.4});
+  const pm=new C.MeshStandardMaterial({map:tex,transparent:true,roughness:.45,polygonOffset:true,polygonOffsetFactor:-2});
+  const add=(g,m,x=0,y=0,z=0)=>{const o=new C.Mesh(g,m);o.position.set(x,y,z);grp.add(o);return o};
+  if(S.kind==='mug'){
+    add(new C.CylinderGeometry(1,1,1.2,64),BODY);
+    add(new C.TorusGeometry(.42,.1,16,40,Math.PI*1.15),BODY,1,0,0).rotation.z=-Math.PI*.575;
+    add(new C.CylinderGeometry(1.01,1.01,1,64,1,true,-1.1,2.2),pm);
+  }else if(S.kind==='tum'){
+    add(new C.CylinderGeometry(.85,.7,2.4,64),BODY);
+    add(new C.CylinderGeometry(.88,.88,.22,64),new C.MeshStandardMaterial({color:'#222'}),0,1.3,0);
+    add(new C.CylinderGeometry(.835,.725,1.8,64,1,true,-1.15,2.3),pm);
+  }else if(S.kind==='tee'){
+    const sh=new C.Shape();
+    [[-.45,1.2],[-.2,1.05],[.2,1.05],[.45,1.2],[1.2,.95],[1.65,.25],[1.25,.05],[.95,.35],[.95,-1.3],[-.95,-1.3],[-.95,.35],[-1.25,.05],[-1.65,.25],[-1.2,.95]].forEach(([x,y],i)=>i?sh.lineTo(x,y):sh.moveTo(x,y));
+    const g=new C.ExtrudeGeometry(sh,{depth:.12,bevelEnabled:false});g.translate(0,0,-.06);
+    add(g,BODY);add(new C.PlaneGeometry(1.5,1.7),pm,0,-.1,.065);
+  }else{
+    add(new C.BoxGeometry(3,.08,2.4),BODY);
+    add(new C.PlaneGeometry(3,2.4),pm,0,.042,0).rotation.x=-Math.PI/2;
+  }
+  grp.rotation.copy(home());scene.add(grp);cam.position.z=k.z;$('#zoom').value=k.z;draw();
+}
+function draw(){
+  const k=KIND[S.kind],x=dc.getContext('2d');x.clearRect(0,0,k.w,k.h);
+  if(S.img){const r=Math.min(k.w/S.img.width,k.h/S.img.height)*S.is,w=S.img.width*r,h=S.img.height*r;
+    x.save();x.translate(k.w/2+S.ix*k.w/2,k.h/2+S.iy*k.h/2);x.rotate(S.ir*Math.PI/180);x.drawImage(S.img,-w/2,-h/2,w,h);x.restore()}
+  if(S.text){x.font=`700 ${S.ts*k.h/500}px "${S.tf}",sans-serif`;x.textAlign='center';x.textBaseline='middle';x.fillStyle=S.tc;x.fillText(S.text,k.w/2+S.tx*k.w/2,k.h/2+S.ty*k.h/2,k.w*.95)}
+  tex.needsUpdate=true;render();
+}
+function snap(){
+  const r=grp.rotation.clone(),z=cam.position.z;grp.rotation.copy(home());cam.position.z=KIND[S.kind].z;render();
+  const u=R.domElement.toDataURL('image/png');grp.rotation.copy(r);cam.position.z=z;render();return u;
+}
+function fillSel(){
+  const o=D.products.filter(p=>p.k&&KIND[p.k]);
+  $('#dsel').innerHTML=o.map(p=>`<option value="${esc(p.id)}">${esc(p.n)} — ${money(p.p)}</option>`).join('')||'<option>No hay productos con diseño 3D</option>';
+  if(o.length)pick(o.find(p=>p.id===S.pid)?S.pid:o[0].id);
+}
+function pick(id){const p=D.products.find(x=>x.id===id);if(!p||!KIND[p.k])return;S.pid=id;$('#dsel').value=id;if(S.kind!==p.k){S.kind=p.k;build()}}
+$('#dsel').onchange=e=>pick(e.target.value);
+$('#col').oninput=e=>{S.color=e.target.value;BODY.color.set(S.color);render()};
+$$('.sw').forEach(b=>b.onclick=()=>{$('#col').value=S.color=b.dataset.c;BODY.color.set(S.color);render()});
+$('#up').onchange=e=>{const f=e.target.files[0];if(!f)return;const im=new Image();im.onload=()=>{S.img=im;S.is=1;S.ix=S.iy=S.ir=0;syncSl();draw()};im.src=URL.createObjectURL(f)};
+$('#rmimg').onclick=()=>{S.img=null;$('#up').value='';draw()};
+$('#tx').oninput=e=>{S.text=e.target.value;draw()};
+$('#tc').oninput=e=>{S.tc=e.target.value;draw()};
+$('#tf').onchange=e=>{S.tf=e.target.value;document.fonts.load(`700 40px "${S.tf}"`).then(draw)};
+$('#reset').onclick=()=>{grp.rotation.copy(home());zoom(KIND[S.kind].z)};
+$('#zoom').oninput=e=>zoom(+e.target.value);
+$('#addd').onclick=()=>{
+  const p=D.products.find(x=>x.id===S.pid);if(!p)return;
+  if(!S.img&&!S.text)return toast('Sube una imagen o escribe un texto primero');
+  if(p.s===0)return toast('Este producto está agotado');
+  addCart(p,{prev:snap(),print:dc.toDataURL('image/png'),color:S.color,text:S.text});
+};
+
+// ---- admin
+function readImg(f,max){return new Promise(res=>{const im=new Image();im.onload=()=>{const r=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*r;c.height=im.height*r;c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.8))};im.src=URL.createObjectURL(f)})}
+function renderAdmin(){
+  $('#awa').value=D.cfg.wa;$('#acur').value=D.cfg.cur;
+  $('#alist').innerHTML=D.products.map((p,i)=>`<div class="ar" data-i="${i}"><div class="ai">${p.img?`<img src="${p.img}" alt="">`:`<span>${esc(p.e)||'🎁'}</span>`}<label class="b2" style="padding:4px 12px;font-size:13px">Imagen<input type="file" accept="image/*" data-img hidden></label></div><div class="ag"><label>Nombre<input data-f="n" value="${esc(p.n)}"></label><label>Categoría<select data-f="c">${CATS.map(c=>`<option ${c===p.c?'selected':''}>${c}</option>`).join('')}</select></label><label>Precio<input type="number" min="0" step="0.5" data-f="p" value="${p.p}"></label><label>Existencias<input type="number" min="0" data-f="s" placeholder="Ilimitado" value="${p.s??''}"></label><label>Emoji<input data-f="e" maxlength="4" value="${esc(p.e)}"></label><label>Diseño 3D<select data-f="k">${[['','Ninguno'],['mug','Taza'],['tee','Playera'],['tum','Termo'],['pad','Mousepad']].map(([v,t])=>`<option value="${v}" ${v===p.k?'selected':''}>${t}</option>`).join('')}</select></label><label class="wide">Descripción<textarea data-f="d" rows="2">${esc(p.d)}</textarea></label></div><button class="b2" data-del>Eliminar</button></div>`).join('');
+}
+$('#alist').addEventListener('input',e=>{
+  const t=e.target,f=t.dataset.f;if(!f)return;const p=D.products[t.closest('.ar').dataset.i];
+  p[f]=f==='p'?(+t.value||0):f==='s'?(t.value===''?null:+t.value):t.value;save();
+});
+$('#alist').addEventListener('change',async e=>{
+  if(!e.target.dataset.img||!e.target.files[0])return;
+  D.products[e.target.closest('.ar').dataset.i].img=await readImg(e.target.files[0],500);save();renderAdmin();
+});
+$('#alist').addEventListener('click',e=>{
+  if(!e.target.dataset.del)return;
+  if(confirm('¿Eliminar este producto?')){D.products.splice(e.target.closest('.ar').dataset.i,1);save();renderAdmin()}
+});
+$('#aadd').onclick=()=>{D.products.unshift({id:'n'+Date.now(),n:'Nuevo producto',c:'Sublimación',p:0,s:0,e:'🎁',k:'',d:'',img:''});save();renderAdmin()};
+$('#awa').oninput=e=>{D.cfg.wa=e.target.value.replace(/\D/g,'');save()};
+$('#acur').oninput=e=>{D.cfg.cur=e.target.value||'$';save()};
+$('#aexp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,1)],{type:'application/json'}));a.download='products.json';a.click();toast('Sube este archivo a tu repositorio')};
+function discard(){if(!confirm('¿Descartar el borrador local y volver a lo publicado?'))return;try{localStorage.removeItem(LS)}catch(e){}location.href=location.pathname;location.reload()}
+$('#adis').onclick=$('#draft').onclick=discard;
+
+// ---- arranque
+function route(){
+  const a=location.hash==='#admin';$('#adm').hidden=!a;$('#shop').hidden=a;
+  if(a)renderAdmin();else{renderGrid();fillSel();syncWA()}
+  scrollTo(0,0);
+}
+addEventListener('hashchange',route);
+(async()=>{await load();renderCart();try{init3d()}catch(e){$('#stage').innerHTML='<p style="padding:20px">Tu navegador no pudo iniciar el modo 3D.</p>'}route()})();
+</script>
+</body>
+</html>
